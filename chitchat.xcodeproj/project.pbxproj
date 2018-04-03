@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		66EE0EB7207411F30038C3BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EE0EB6207411F30038C3BA /* AppDelegate.swift */; };
-		66EE0EB9207411F30038C3BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EE0EB8207411F30038C3BA /* ViewController.swift */; };
 		66EE0EBC207411F30038C3BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EE0EBA207411F30038C3BA /* Main.storyboard */; };
 		66EE0EBE207411F50038C3BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66EE0EBD207411F50038C3BA /* Assets.xcassets */; };
 		66EE0EC1207411F50038C3BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EE0EBF207411F50038C3BA /* LaunchScreen.storyboard */; };
+		66EE0ED0207412BA0038C3BA /* ChitChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EE0ECE207412BA0038C3BA /* ChitChatViewController.swift */; };
+		66EE0ED4207414AD0038C3BA /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EE0ED2207414AD0038C3BA /* PostTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		66EE0EB3207411F30038C3BA /* chitchat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chitchat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EE0EB6207411F30038C3BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		66EE0EB8207411F30038C3BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		66EE0EBB207411F30038C3BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		66EE0EBD207411F50038C3BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66EE0EC0207411F50038C3BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66EE0EC2207411F50038C3BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66EE0ECE207412BA0038C3BA /* ChitChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChitChatViewController.swift; sourceTree = "<group>"; };
+		66EE0ED2207414AD0038C3BA /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,31 @@
 		66EE0EB5207411F30038C3BA /* chitchat */ = {
 			isa = PBXGroup;
 			children = (
+				66EE0ECD2074128C0038C3BA /* View */,
+				66EE0EC8207412010038C3BA /* View Controller */,
 				66EE0EB6207411F30038C3BA /* AppDelegate.swift */,
-				66EE0EB8207411F30038C3BA /* ViewController.swift */,
 				66EE0EBA207411F30038C3BA /* Main.storyboard */,
 				66EE0EBD207411F50038C3BA /* Assets.xcassets */,
 				66EE0EBF207411F50038C3BA /* LaunchScreen.storyboard */,
 				66EE0EC2207411F50038C3BA /* Info.plist */,
 			);
 			path = chitchat;
+			sourceTree = "<group>";
+		};
+		66EE0EC8207412010038C3BA /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				66EE0ECE207412BA0038C3BA /* ChitChatViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		66EE0ECD2074128C0038C3BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				66EE0ED2207414AD0038C3BA /* PostTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +154,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66EE0EB9207411F30038C3BA /* ViewController.swift in Sources */,
+				66EE0ED0207412BA0038C3BA /* ChitChatViewController.swift in Sources */,
 				66EE0EB7207411F30038C3BA /* AppDelegate.swift in Sources */,
+				66EE0ED4207414AD0038C3BA /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
