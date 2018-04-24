@@ -11,9 +11,9 @@ import UIKit
 class PostTableViewCell: UITableViewCell {
 
     @IBOutlet weak var client: UILabel!
-    @IBOutlet weak var post: UITextView!
     @IBOutlet weak var numLikes: UILabel!
     @IBOutlet weak var numDislikes: UILabel!
+    @IBOutlet weak var post: UILabel!
     
     
     override func awakeFromNib() {
