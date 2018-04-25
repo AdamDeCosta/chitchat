@@ -32,7 +32,7 @@ class ChitChatViewController: UITableViewController
         
         tableView.refreshControl = tableViewRefreshControl
         
-        self.networkManager?.loadMessages(urlString: "https://www.stepoutnyc.com/chitchat?client=adam.decosta@mymail.champlain.edu&key=9eb6f58a-8129-4de4-a918-7c17a2447600", completion: { self.reloadTableView() } )
+        fetchData()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -88,6 +88,7 @@ class ChitChatViewController: UITableViewController
         if networkManager.messages.count > 0
         {
             let post = networkManager.messages[indexPath.row]
+            print("COUNT: \(networkManager.messages.count)")
             
             cell.chatID = post._id!
             cell.client.text = post.client
