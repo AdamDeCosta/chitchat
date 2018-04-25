@@ -32,7 +32,7 @@ class ChitChatViewController: UITableViewController
         
         tableView.refreshControl = tableViewRefreshControl
         
-        networkManager?.loadMessages(urlString: "https://www.stepoutnyc.com/chitchat?client=adam.decosta@mymail.champlain.edu&key=9eb6f58a-8129-4de4-a918-7c17a2447600", completion: { self.fetchData() } )
+        self.networkManager?.loadMessages(urlString: "https://www.stepoutnyc.com/chitchat?client=adam.decosta@mymail.champlain.edu&key=9eb6f58a-8129-4de4-a918-7c17a2447600", completion: { self.reloadTableView() } )
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -50,8 +50,7 @@ class ChitChatViewController: UITableViewController
     {
         DispatchQueue.main.async
         {
-            self.tableViewRefreshControl.endRefreshing()
-            self.reloadTableView()
+            self.networkManager?.loadMessages(urlString: "https://www.stepoutnyc.com/chitchat?client=adam.decosta@mymail.champlain.edu&key=9eb6f58a-8129-4de4-a918-7c17a2447600", completion: { self.reloadTableView() } )
         }
     }
     
@@ -60,6 +59,7 @@ class ChitChatViewController: UITableViewController
         DispatchQueue.main.async
         {
             self.tableView.reloadData()
+            self.tableViewRefreshControl.endRefreshing()
         }
     }
     
@@ -84,12 +84,17 @@ class ChitChatViewController: UITableViewController
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostTableViewCell
 
-        let post = networkManager.messages[indexPath.row]
-        cell.chatID = post._id!
-        cell.client.text = post.client
-        cell.post.text = post.message
-        cell.numLikes.text = String(post.likes!)
-        cell.numDislikes.text = String(post.dislikes!)
+        //If the connection fails the message count will be 0. Test to make sure there is at least one message before accessing the array.
+        if networkManager.messages.count > 0
+        {
+            let post = networkManager.messages[indexPath.row]
+            
+            cell.chatID = post._id!
+            cell.client.text = post.client
+            cell.post.text = post.message
+            cell.numLikes.text = String(post.likes!)
+            cell.numDislikes.text = String(post.dislikes!)
+        }
         
         return cell
     }

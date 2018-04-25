@@ -64,7 +64,6 @@ class NetworkManager
     
     func loadMessages(urlString: String, completion: @escaping () -> Void)
     {
-        messages = []
         if let url = URL(string: urlString)
         {
             URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -83,6 +82,7 @@ class NetworkManager
                         
                         if let jsonDictionary = jsonObject as? [String:Any], let messages = jsonDictionary["messages"] as? [[String:Any]]
                         {
+                            self.messages = []
                             for currentMessage in messages
                             {
                                 if let comment = currentMessage["message"], let client = currentMessage["client"] as? String, let _id = currentMessage["_id"] as? String, let likes = currentMessage["likes"] as? Int, let dislikes = currentMessage["dislikes"] as? Int
