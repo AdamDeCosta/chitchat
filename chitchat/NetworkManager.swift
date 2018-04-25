@@ -12,7 +12,7 @@ class NetworkManager
 {
     @objc var messages = [Message]()
     
-    func loadMessages(urlString: String)
+    func loadMessages(urlString: String, completion: @escaping () -> Void)
     {
         if let url = URL(string: urlString)
         {
@@ -43,6 +43,8 @@ class NetworkManager
                                     self.messages.append(messageObj)
                                 }
                             }
+                            
+                            completion()
                         }
                     }
                     catch

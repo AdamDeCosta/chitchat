@@ -10,19 +10,29 @@ import UIKit
 
 class ChitChatViewController: UITableViewController {
     
-    var networkManager: NetworkManager?
+    var networkManager: NetworkManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkManager?.loadMessages(urlString: "https://www.stepoutnyc.com/chitchat?client=andrew.rimpici@mymail.champlain.edu&key=b54656e8-000d-492f-95c6-91215b2d7c88")
-
+        networkManager?.loadMessages(urlString: "https://www.stepoutnyc.com/chitchat?client=andrew.rimpici@mymail.champlain.edu&key=b54656e8-000d-492f-95c6-91215b2d7c88", completion: { self.reload() } )
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+    }
+    
+    func reload() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,14 +44,17 @@ class ChitChatViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return networkManager.messages.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostTableViewCell
 
-        // Configure the cell...
+        let post = networkManager.messages[indexPath.row]
 
+        cell.client.text = post.client
+        cell.post.text = post.message
+        
         return cell
     }
 

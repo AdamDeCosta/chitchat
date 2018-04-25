@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,13 +22,13 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a Post!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O2A-Dv-bLl">
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a Post!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O2A-Dv-bLl">
                                     <rect key="frame" x="0.0" y="0.0" width="358" height="44"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8G-uL-Eph">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8G-uL-Eph">
                                     <rect key="frame" x="378" y="0.0" width="36" height="44"/>
                                     <state key="normal" title="Send"/>
                                 </button>
@@ -39,7 +38,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="140" id="3Hr-AR-EYt" customClass="PostTableViewCell" customModule="chitchat" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="414" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Hr-AR-EYt" id="hFn-5L-nWi" userLabel="PostLabel">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Hr-AR-EYt" id="hFn-5L-nWi">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="139.66666666666666"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -80,6 +79,7 @@
                                         <constraint firstAttribute="bottom" secondItem="1hO-0d-0eN" secondAttribute="bottom" constant="0.66666666666665719" id="Br1-cg-hP3"/>
                                         <constraint firstItem="Rfp-lR-dpe" firstAttribute="leading" secondItem="hFn-5L-nWi" secondAttribute="leading" constant="6" id="EGX-qY-Umr"/>
                                         <constraint firstAttribute="bottom" secondItem="eAM-Br-U1X" secondAttribute="bottom" constant="0.66666666666665719" id="Gz9-Ds-AMv"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Rfp-lR-dpe" secondAttribute="trailing" constant="20" symbolic="YES" id="HZT-eQ-Fkr"/>
                                         <constraint firstItem="1hO-0d-0eN" firstAttribute="leading" secondItem="hFn-5L-nWi" secondAttribute="leading" constant="6" id="R9L-LM-CaJ"/>
                                         <constraint firstItem="eAM-Br-U1X" firstAttribute="top" secondItem="mvp-nR-pXd" secondAttribute="bottom" constant="8" id="RpC-Yx-Ul4"/>
                                         <constraint firstAttribute="trailing" secondItem="mvp-nR-pXd" secondAttribute="trailing" constant="20" id="TEC-dV-YKU"/>
@@ -90,6 +90,10 @@
                                         <constraint firstItem="mvp-nR-pXd" firstAttribute="centerY" secondItem="hFn-5L-nWi" secondAttribute="centerY" id="yqv-aO-Sog"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="client" destination="Rfp-lR-dpe" id="ig9-G7-uUc"/>
+                                    <outlet property="post" destination="mvp-nR-pXd" id="KZA-mq-3x5"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
