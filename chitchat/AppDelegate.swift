@@ -18,9 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         //Uncomment for navController
-        //let navController = window!.rootViewController as! UINavigationController
-        let chitchatController = window!.rootViewController as! ChitChatViewController
+        let navController = window!.rootViewController as! UINavigationController
+        let chitchatController = navController.viewControllers.first as! ChitChatViewController
         chitchatController.networkManager = networkManager
+        
+        PostTableViewCell.networkManager = networkManager
         
         return true
     }

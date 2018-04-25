@@ -11,11 +11,14 @@ import UIKit
 class ChitChatViewController: UITableViewController {
     
     var networkManager: NetworkManager!
+    @IBOutlet weak var postField: UITextField!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkManager?.loadMessages(urlString: "https://www.stepoutnyc.com/chitchat?client=andrew.rimpici@mymail.champlain.edu&key=b54656e8-000d-492f-95c6-91215b2d7c88", completion: { self.reload() } )
+        networkManager?.loadMessages(urlString: "https://www.stepoutnyc.com/chitchat?client=adam.decosta@mymail.champlain.edu&key=9eb6f58a-8129-4de4-a918-7c17a2447600", completion: { self.reload() } )
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -23,6 +26,9 @@ class ChitChatViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        networkManager.reload = {
+            self.reload()
+        }
     }
     
     func reload() {
@@ -34,7 +40,7 @@ class ChitChatViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -51,9 +57,11 @@ class ChitChatViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostTableViewCell
 
         let post = networkManager.messages[indexPath.row]
-
+        cell.chatID = post._id!
         cell.client.text = post.client
         cell.post.text = post.message
+        cell.numLikes.text = String(post.likes!)
+        cell.numDislikes.text = String(post.dislikes!)
         
         return cell
     }
@@ -93,14 +101,21 @@ class ChitChatViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    }
-    */
     
+    }
+    
+    @IBAction func sendChat(_ sender: UIButton) {
+        if let chat = postField.text {
+            print("chat")
+            networkManager.sendChat(chat: chat)
+            networkManager?.loadMessages(urlString: "https://www.stepoutnyc.com/chitchat?client=adam.decosta@mymail.champlain.edu&key=9eb6f58a-8129-4de4-a918-7c17a2447600", completion: { self.reload() } )
+            postField.text = ""
+        }
+    }
 }

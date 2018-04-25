@@ -9,12 +9,15 @@
 import UIKit
 
 class PostTableViewCell: UITableViewCell {
+    
+    static var networkManager: NetworkManager?
 
     @IBOutlet weak var client: UILabel!
     @IBOutlet weak var numLikes: UILabel!
     @IBOutlet weak var numDislikes: UILabel!
     @IBOutlet weak var post: UILabel!
     
+    var chatID: String = String()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,11 +31,11 @@ class PostTableViewCell: UITableViewCell {
     }
     
     @IBAction func likePost(_ sender: UIButton) {
-        print("Liked!")
+        PostTableViewCell.networkManager?.likeMessage(chatID: chatID)
     }
     
     @IBAction func dislikePost(_ sender: UIButton) {
-        print("Disliked!")
+        PostTableViewCell.networkManager?.dislikeMessage(chatID: chatID)
     }
     
 }
