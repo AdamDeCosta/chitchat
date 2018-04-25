@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01B40A632089166D00939358 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B40A622089166D00939358 /* Message.swift */; };
+		01B40A652089183800939358 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B40A642089183800939358 /* NetworkManager.swift */; };
 		66EE0EB7207411F30038C3BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EE0EB6207411F30038C3BA /* AppDelegate.swift */; };
 		66EE0EBC207411F30038C3BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EE0EBA207411F30038C3BA /* Main.storyboard */; };
 		66EE0EBE207411F50038C3BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66EE0EBD207411F50038C3BA /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01B40A622089166D00939358 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		01B40A642089183800939358 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		66EE0EB3207411F30038C3BA /* chitchat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chitchat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EE0EB6207411F30038C3BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66EE0EBB207411F30038C3BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				66EE0EBD207411F50038C3BA /* Assets.xcassets */,
 				66EE0EBF207411F50038C3BA /* LaunchScreen.storyboard */,
 				66EE0EC2207411F50038C3BA /* Info.plist */,
+				01B40A622089166D00939358 /* Message.swift */,
+				01B40A642089183800939358 /* NetworkManager.swift */,
 			);
 			path = chitchat;
 			sourceTree = "<group>";
@@ -155,6 +161,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				66EE0ED0207412BA0038C3BA /* ChitChatViewController.swift in Sources */,
+				01B40A632089166D00939358 /* Message.swift in Sources */,
+				01B40A652089183800939358 /* NetworkManager.swift in Sources */,
 				66EE0EB7207411F30038C3BA /* AppDelegate.swift in Sources */,
 				66EE0ED4207414AD0038C3BA /* PostTableViewCell.swift in Sources */,
 			);

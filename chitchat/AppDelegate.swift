@@ -12,10 +12,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var networkManager = NetworkManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //Uncomment for navController
+        //let navController = window!.rootViewController as! UINavigationController
+        let chitchatController = window!.rootViewController as! ChitChatViewController
+        chitchatController.networkManager = networkManager
+        
         return true
     }
 

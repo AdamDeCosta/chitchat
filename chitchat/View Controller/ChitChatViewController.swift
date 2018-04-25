@@ -9,15 +9,20 @@
 import UIKit
 
 class ChitChatViewController: UITableViewController {
-        
+    
+    var networkManager: NetworkManager?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        networkManager?.loadMessages(urlString: "https://www.stepoutnyc.com/chitchat?client=andrew.rimpici@mymail.champlain.edu&key=b54656e8-000d-492f-95c6-91215b2d7c88")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
     }
 
     override func didReceiveMemoryWarning() {
