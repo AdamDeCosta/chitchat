@@ -8,8 +8,8 @@
 
 import UIKit
 
-class PostTableViewCell: UITableViewCell {
-    
+class PostTableViewCell: UITableViewCell
+{
     static var networkManager: NetworkManager?
 
     @IBOutlet weak var client: UILabel!
@@ -19,22 +19,26 @@ class PostTableViewCell: UITableViewCell {
     
     var chatID: String = String()
     
-    override func awakeFromNib() {
+    override func awakeFromNib()
+    {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool)
+    {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
-    @IBAction func likePost(_ sender: UIButton) {
+    @IBAction func likePost(_ sender: UIButton)
+    {
         PostTableViewCell.networkManager?.likeMessage(chatID: chatID)
     }
     
-    @IBAction func dislikePost(_ sender: UIButton) {
+    @IBAction func dislikePost(_ sender: UIButton)
+    {
         PostTableViewCell.networkManager?.dislikeMessage(chatID: chatID)
     }
     

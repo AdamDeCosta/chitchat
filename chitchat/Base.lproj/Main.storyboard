@@ -104,6 +104,7 @@
                                         <constraint firstItem="Xrd-RW-5Ma" firstAttribute="leading" secondItem="1hO-0d-0eN" secondAttribute="trailing" constant="8" id="F7F-AT-Rlm"/>
                                         <constraint firstAttribute="bottom" secondItem="eAM-Br-U1X" secondAttribute="bottom" constant="0.66666666666665719" id="Gz9-Ds-AMv"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Rfp-lR-dpe" secondAttribute="trailing" constant="20" symbolic="YES" id="HZT-eQ-Fkr"/>
+                                        <constraint firstItem="yly-cE-CSu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hFn-5L-nWi" secondAttribute="leading" constant="20" symbolic="YES" id="P8W-Yz-O8m"/>
                                         <constraint firstItem="1hO-0d-0eN" firstAttribute="leading" secondItem="hFn-5L-nWi" secondAttribute="leading" constant="6" id="R9L-LM-CaJ"/>
                                         <constraint firstItem="eAM-Br-U1X" firstAttribute="top" secondItem="mvp-nR-pXd" secondAttribute="bottom" constant="8" id="RpC-Yx-Ul4"/>
                                         <constraint firstAttribute="trailing" secondItem="mvp-nR-pXd" secondAttribute="trailing" constant="20" id="TEC-dV-YKU"/>
@@ -112,6 +113,7 @@
                                         <constraint firstItem="yly-cE-CSu" firstAttribute="top" secondItem="mvp-nR-pXd" secondAttribute="bottom" constant="7" id="WAl-bP-trx"/>
                                         <constraint firstAttribute="trailing" secondItem="eAM-Br-U1X" secondAttribute="trailing" constant="6" id="YE3-NQ-dh7"/>
                                         <constraint firstItem="eAM-Br-U1X" firstAttribute="leading" secondItem="yly-cE-CSu" secondAttribute="trailing" constant="8" id="dAG-wQ-gSb"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Xrd-RW-5Ma" secondAttribute="trailing" constant="20" symbolic="YES" id="el8-AK-Vpc"/>
                                         <constraint firstItem="mvp-nR-pXd" firstAttribute="top" secondItem="hFn-5L-nWi" secondAttribute="top" constant="28.666666666666629" id="lRR-ra-XCZ"/>
                                         <constraint firstItem="mvp-nR-pXd" firstAttribute="centerY" secondItem="hFn-5L-nWi" secondAttribute="centerY" id="yqv-aO-Sog"/>
                                     </constraints>
