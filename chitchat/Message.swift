@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class Message: NSObject
+{
+    @objc var client: String?
+    @objc var message: String?
+}
