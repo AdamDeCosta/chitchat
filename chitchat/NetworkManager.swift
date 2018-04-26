@@ -11,6 +11,8 @@ import Foundation
 class NetworkManager
 {
     @objc var messages = [Message]()
+    static var urlStoreName = String("URLStore")
+    var username: String
     
     let reactionArchiveURL : URL =
     {
@@ -21,20 +23,18 @@ class NetworkManager
         return documentDirectory.appendingPathComponent("reactions.archive")
     }()
     
-    let likeURL : String = "https://www.stepoutnyc.com/chitchat/like/"
-    let dislikeURL : String = "https://www.stepoutnyc.com/chitchat/dislike/"
-    
     var reactionCache: [String] = []
     
     var reload: (() -> Void)?
     
-    init()
+    init(username: String)
     {
         if let archivedItems = NSKeyedUnarchiver.unarchiveObject(withFile: reactionArchiveURL.path) as? [String]
         {
             reactionCache.append(contentsOf: archivedItems)
         }
         
+        self.username = username
     }
     
     func getMessage(chatID: String) -> Message?
@@ -61,10 +61,9 @@ class NetworkManager
         return nil
     }
     
-    
-    func loadMessages(urlString: String, completion: @escaping () -> Void)
+    func loadMessages(completion: @escaping () -> Void)
     {
-        if let url = URL(string: urlString)
+        if let url = URL(string: NetworkManager.getURLString(forKey: "url") + NetworkManager.getUserString(forKey: username))
         {
             URLSession.shared.dataTask(with: url) { (data, response, error) in
                 
@@ -130,7 +129,7 @@ class NetworkManager
         self.reactionCache.append(chatID)
         
         // Create message URL for this particular chat
-        let request = URLRequest(url: URL(string: "\(likeURL)\(chatID)?client=adam.decosta@mymail.champlain.edu&key=9eb6f58a-8129-4de4-a918-7c17a2447600")!)
+        let request = URLRequest(url: URL(string: NetworkManager.getURLString(forKey: "url") + NetworkManager.getURLString(forKey: "like") + "\(chatID)" + NetworkManager.getUserString(forKey: username))!)
         
         let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler:
         { data, response, error in
@@ -188,7 +187,7 @@ class NetworkManager
         self.reactionCache.append(chatID)
         
         // Create message URL for this particular chat
-        let request = URLRequest(url: URL(string: "\(dislikeURL)\(chatID)?client=adam.decosta@mymail.champlain.edu&key=9eb6f58a-8129-4de4-a918-7c17a2447600")!)
+        let request = URLRequest(url: URL(string: NetworkManager.getURLString(forKey: "url") + NetworkManager.getURLString(forKey: "dislike") + "\(chatID)" + NetworkManager.getUserString(forKey: username))!)
         
         let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler:
         { data, response, error in
@@ -239,7 +238,7 @@ class NetworkManager
     {
         let message = chat.replacingOccurrences(of: " ", with: "%20")
         
-        if let url = URL(string: "https://www.stepoutnyc.com/chitchat?client=adam.decosta@mymail.champlain.edu&key=9eb6f58a-8129-4de4-a918-7c17a2447600&message=\(message)")
+        if let url = URL(string: NetworkManager.getURLString(forKey: "url") + NetworkManager.getUserString(forKey: username) + NetworkManager.getURLString(forKey: "message") + "\(message)")
         {
             var request = URLRequest(url: url)
             
@@ -276,5 +275,33 @@ class NetworkManager
         {
             print("failed")
         }
+    }
+    
+    //Returns the url location of where the image is
+    public static func getURLString(forKey key: String) -> String
+    {
+        if let path = Bundle.main.path(forResource: urlStoreName, ofType: "plist")
+        {
+            if let list = NSDictionary(contentsOfFile: path)
+            {
+                return list.value(forKey: key) as! String
+            }
+        }
+        
+        return "INVALID KEY IN \(urlStoreName).plist FOR KEY: \(key)"
+    }
+    
+    //Returns the url location of where the image is
+    public static func getUserString(forKey username: String) -> String
+    {
+        if let path = Bundle.main.path(forResource: urlStoreName, ofType: "plist")
+        {
+            if let list = NSDictionary(contentsOfFile: path), let userList = list.value(forKey: "username") as! NSDictionary?, let passwordList = list.value(forKey: "password") as! NSDictionary?
+            {
+                return (userList.value(forKey: username) as! String) + (passwordList.value(forKey: username) as! String)
+            }
+        }
+        
+        return ("INVALID USERNAME AND PASSWORD FOR KEY: \(username)")
     }
 }

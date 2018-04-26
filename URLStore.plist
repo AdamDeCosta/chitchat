@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>username</key>
+	<dict>
+		<key>adam</key>
+		<string>?client=adam.decosta@mymail.champlain.edu</string>
+		<key>andrew</key>
+		<string>?client=andrew.rimpici@mymail.champlain.edu</string>
+	</dict>
+	<key>password</key>
+	<dict>
+		<key>adam</key>
+		<string>&amp;key=9eb6f58a-8129-4de4-a918-7c17a2447600</string>
+		<key>andrew</key>
+		<string>&amp;key=b54656e8-000d-492f-95c6-91215b2d7c88</string>
+	</dict>
+	<key>url</key>
+	<string>https://www.stepoutnyc.com/chitchat</string>
+	<key>message</key>
+	<string>&amp;message=</string>
+	<key>like</key>
+	<string>/like/</string>
+	<key>dislike</key>
+	<string>/dislike/</string>
+</dict>
+</plist>

@@ -50,7 +50,9 @@ class ChitChatViewController: UITableViewController
     {
         DispatchQueue.main.async
         {
-            self.networkManager?.loadMessages(urlString: "https://www.stepoutnyc.com/chitchat?client=adam.decosta@mymail.champlain.edu&key=9eb6f58a-8129-4de4-a918-7c17a2447600", completion: { self.reloadTableView() } )
+            //self.networkManager?.loadMessages(urlString: "https://www.stepoutnyc.com/chitchat?client=adam.decosta@mymail.champlain.edu&key=9eb6f58a-8129-4de4-a918-7c17a2447600", completion: { self.reloadTableView() } )
+            
+            self.networkManager?.loadMessages(completion: { self.reloadTableView() } )
         }
     }
     
@@ -156,7 +158,7 @@ class ChitChatViewController: UITableViewController
         {
             print("chat")
             networkManager.sendChat(chat: chat)
-            networkManager?.loadMessages(urlString: "https://www.stepoutnyc.com/chitchat?client=adam.decosta@mymail.champlain.edu&key=9eb6f58a-8129-4de4-a918-7c17a2447600", completion: { self.fetchData() } )
+            networkManager?.loadMessages(completion: { self.fetchData() } )
             postField.text = ""
         }
     }
