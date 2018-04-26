@@ -10,6 +10,7 @@
 		01B40A632089166D00939358 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B40A622089166D00939358 /* Message.swift */; };
 		01B40A652089183800939358 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B40A642089183800939358 /* NetworkManager.swift */; };
 		01BDFBCC2092163E00795112 /* URLStore.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01BDFBCB2092163E00795112 /* URLStore.plist */; };
+		3403B8663E44B25AAF249D44 /* Pods_chitchat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 574DD8CEBADCD631F8E9060F /* Pods_chitchat.framework */; };
 		66EE0EB7207411F30038C3BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EE0EB6207411F30038C3BA /* AppDelegate.swift */; };
 		66EE0EBC207411F30038C3BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EE0EBA207411F30038C3BA /* Main.storyboard */; };
 		66EE0EBE207411F50038C3BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66EE0EBD207411F50038C3BA /* Assets.xcassets */; };
@@ -22,6 +23,8 @@
 		01B40A622089166D00939358 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		01B40A642089183800939358 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		01BDFBCB2092163E00795112 /* URLStore.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = URLStore.plist; sourceTree = "<group>"; };
+		44788F2C6C581645272EB71F /* Pods-chitchat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chitchat.release.xcconfig"; path = "Pods/Target Support Files/Pods-chitchat/Pods-chitchat.release.xcconfig"; sourceTree = "<group>"; };
+		574DD8CEBADCD631F8E9060F /* Pods_chitchat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chitchat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EE0EB3207411F30038C3BA /* chitchat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chitchat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EE0EB6207411F30038C3BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66EE0EBB207411F30038C3BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -30,6 +33,7 @@
 		66EE0EC2207411F50038C3BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66EE0ECE207412BA0038C3BA /* ChitChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChitChatViewController.swift; sourceTree = "<group>"; };
 		66EE0ED2207414AD0038C3BA /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		87FD00FF4285817532955C98 /* Pods-chitchat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chitchat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chitchat/Pods-chitchat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,18 +41,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3403B8663E44B25AAF249D44 /* Pods_chitchat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		248A780E8508EBC92EEF34A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				574DD8CEBADCD631F8E9060F /* Pods_chitchat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3C5DF61427976CAE58AEF605 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				87FD00FF4285817532955C98 /* Pods-chitchat.debug.xcconfig */,
+				44788F2C6C581645272EB71F /* Pods-chitchat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		66EE0EAA207411F30038C3BA = {
 			isa = PBXGroup;
 			children = (
 				01BDFBCB2092163E00795112 /* URLStore.plist */,
 				66EE0EB5207411F30038C3BA /* chitchat */,
 				66EE0EB4207411F30038C3BA /* Products */,
+				3C5DF61427976CAE58AEF605 /* Pods */,
+				248A780E8508EBC92EEF34A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,9 +123,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66EE0EC5207411F50038C3BA /* Build configuration list for PBXNativeTarget "chitchat" */;
 			buildPhases = (
+				9D77F667E44CA3C27D96B236 /* [CP] Check Pods Manifest.lock */,
 				66EE0EAF207411F30038C3BA /* Sources */,
 				66EE0EB0207411F30038C3BA /* Frameworks */,
 				66EE0EB1207411F30038C3BA /* Resources */,
+				608500B763A147A1E6EE3234 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -158,6 +184,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		608500B763A147A1E6EE3234 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-chitchat/Pods-chitchat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-chitchat/Pods-chitchat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D77F667E44CA3C27D96B236 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-chitchat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		66EE0EAF207411F30038C3BA /* Sources */ = {
@@ -310,14 +375,12 @@
 		};
 		66EE0EC6207411F50038C3BA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87FD00FF4285817532955C98 /* Pods-chitchat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = chitchat/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamdecosta.chitchat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -327,14 +390,12 @@
 		};
 		66EE0EC7207411F50038C3BA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44788F2C6C581645272EB71F /* Pods-chitchat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = chitchat/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamdecosta.chitchat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
