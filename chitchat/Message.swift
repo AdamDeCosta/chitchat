@@ -15,4 +15,46 @@ class Message: NSObject
     var dislikes: Int?
     @objc var client: String?
     @objc var message: String?
+    
+    static var supportedImgFormats = [".png", ".jpg", ".gif"]
+    
+    func getImageURLInMessage() -> URL?
+    {
+        var imgURL: URL? = nil
+        
+        if let msg = message
+        {
+            //URL detection code studied from
+            //https://www.hackingwithswift.com/example-code/strings/how-to-detect-a-url-in-a-string-using-nsdatadetector
+            let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+            let matches = detector.matches(in: msg, options: [], range: NSRange(location: 0, length: msg.utf16.count))
+            
+            
+            var isValidImgURL = false
+            
+            for match in matches
+            {
+                guard let range = Range(match.range, in: msg) else { continue }
+                let url = msg[range]
+                print(url)
+                
+                for i in 0..<Message.supportedImgFormats.count
+                {
+                    if url.contains(Message.supportedImgFormats[i])
+                    {
+                        imgURL = URL(string: String(url))
+                        isValidImgURL = true
+                        break
+                    }
+                }
+                
+                if isValidImgURL
+                {
+                    break
+                }
+            }
+        }
+        
+        return imgURL
+    }
 }

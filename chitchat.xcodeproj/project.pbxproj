@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		01B40A632089166D00939358 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B40A622089166D00939358 /* Message.swift */; };
 		01B40A652089183800939358 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B40A642089183800939358 /* NetworkManager.swift */; };
+		01B4EFAD2092919E004819A5 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B4EFAC2092919E004819A5 /* MessageViewController.swift */; };
 		01BDFBCC2092163E00795112 /* URLStore.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01BDFBCB2092163E00795112 /* URLStore.plist */; };
 		3403B8663E44B25AAF249D44 /* Pods_chitchat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 574DD8CEBADCD631F8E9060F /* Pods_chitchat.framework */; };
 		66EE0EB7207411F30038C3BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EE0EB6207411F30038C3BA /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		01B40A622089166D00939358 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		01B40A642089183800939358 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		01B4EFAC2092919E004819A5 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		01BDFBCB2092163E00795112 /* URLStore.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = URLStore.plist; sourceTree = "<group>"; };
 		44788F2C6C581645272EB71F /* Pods-chitchat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chitchat.release.xcconfig"; path = "Pods/Target Support Files/Pods-chitchat/Pods-chitchat.release.xcconfig"; sourceTree = "<group>"; };
 		574DD8CEBADCD631F8E9060F /* Pods_chitchat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chitchat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				66EE0ECE207412BA0038C3BA /* ChitChatViewController.swift */,
+				01B4EFAC2092919E004819A5 /* MessageViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				01B40A632089166D00939358 /* Message.swift in Sources */,
 				01B40A652089183800939358 /* NetworkManager.swift in Sources */,
 				66EE0EB7207411F30038C3BA /* AppDelegate.swift in Sources */,
+				01B4EFAD2092919E004819A5 /* MessageViewController.swift in Sources */,
 				66EE0ED4207414AD0038C3BA /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,7 +384,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = chitchat/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamdecosta.chitchat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -395,7 +402,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = chitchat/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamdecosta.chitchat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

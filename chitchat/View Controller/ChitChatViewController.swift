@@ -146,10 +146,19 @@ class ChitChatViewController: UITableViewController
 
     // MARK: - Navigation
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        switch segue.identifier
+        {
+        case "showMessageView"?:
+            if let row = tableView.indexPathForSelectedRow?.row
+            {
+                let messageViewController = segue.destination as! MessageViewController
+                messageViewController.currentMessage = networkManager.messages[row]
+            }
+        default:
+            preconditionFailure("Unexpected segue identifier.")
+        }
     }
     
     @IBAction func sendChat(_ sender: UIButton)
