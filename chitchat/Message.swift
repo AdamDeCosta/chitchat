@@ -13,6 +13,7 @@ class Message: NSObject
     var _id: String?
     var likes: Int?
     var dislikes: Int?
+    var location: [Double?] = [nil, nil]
     @objc var client: String?
     @objc var message: String?
     

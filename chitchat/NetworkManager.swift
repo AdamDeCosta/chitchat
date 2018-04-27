@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import CoreLocation
 
-class NetworkManager
+class NetworkManager: NSObject, CLLocationManagerDelegate
 {
     @objc var messages = [Message]()
     static var urlStoreName = String("URLStore")
     var username: String
+    var locationManager = CLLocationManager()
     
     let reactionArchiveURL : URL =
     {
@@ -29,12 +31,23 @@ class NetworkManager
     
     init(username: String)
     {
+        
         if let archivedItems = NSKeyedUnarchiver.unarchiveObject(withFile: reactionArchiveURL.path) as? [String]
         {
             reactionCache.append(contentsOf: archivedItems)
         }
         
         self.username = username
+        
+        super.init()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.requestAlwaysAuthorization()
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+        }
     }
     
     func getMessage(chatID: String) -> Message?
@@ -92,6 +105,10 @@ class NetworkManager
                                     messageObj.message = comment as? String
                                     messageObj.likes = likes
                                     messageObj.dislikes = dislikes
+                                    if let loc = currentMessage["loc"] as? [String] {
+                                        messageObj.location = [Double(loc[0]), Double(loc[1])]
+                                        print(messageObj.location)
+                                    }
                                     self.messages.append(messageObj)
                                 }
                             }

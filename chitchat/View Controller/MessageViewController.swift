@@ -8,18 +8,37 @@
 
 import UIKit
 import Kingfisher
+import MapKit
 
 class MessageViewController: UIViewController
 {
     var currentMessage: Message!
     
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var message: UILabel!
+
     
     override func viewWillAppear(_ animated: Bool)
     {
+        super.viewWillAppear(animated)
         if let imageURL = currentMessage.getImageURLInMessage()
         {
+            print(imageURL)
             imageView.kf.setImage(with: imageURL)
         }
+        
+        message.text = currentMessage.message
+        /*
+        if let lat = currentMessage.location[0], let long = currentMessage.location[1] {
+            let initialLoc = CLLocation(latitude: lat, longitude: long)
+            
+            let region = MKCoordinateRegionMakeWithDistance(initialLoc.coordinate, 750, 750)
+            
+            mapView.setRegion(region, animated: true)
+            
+        }*/
     }
+    
+    
 }
