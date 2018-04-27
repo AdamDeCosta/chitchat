@@ -168,7 +168,7 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJ7-FZ-RCj" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="668.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="667"/>
                                         <subviews>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VJV-HG-b1s">
                                                 <rect key="frame" x="32" y="189.33333333333334" width="350" height="267.66666666666663"/>
@@ -188,19 +188,28 @@
                                                     <constraint firstAttribute="width" secondItem="311-bF-VNY" secondAttribute="height" multiplier="125:44" id="vVD-1E-U65"/>
                                                 </constraints>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timestamp" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X80-7n-J7T">
+                                                <rect key="frame" x="20" y="630" width="362" height="20.333333333333371"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="311-bF-VNY" firstAttribute="top" secondItem="kJ7-FZ-RCj" secondAttribute="top" constant="21" id="0yl-uo-G09"/>
                                             <constraint firstItem="dgo-k7-TPy" firstAttribute="leading" secondItem="kJ7-FZ-RCj" secondAttribute="leading" constant="8" id="7Bo-Lk-bIq"/>
                                             <constraint firstItem="dgo-k7-TPy" firstAttribute="top" secondItem="VJV-HG-b1s" secondAttribute="bottom" constant="62" id="8r7-q5-5zo"/>
+                                            <constraint firstAttribute="bottom" secondItem="X80-7n-J7T" secondAttribute="bottom" constant="17.333333333333371" id="FIg-lW-Je5"/>
                                             <constraint firstItem="VJV-HG-b1s" firstAttribute="leading" secondItem="kJ7-FZ-RCj" secondAttribute="leading" constant="32" id="Kn9-CO-3dk"/>
                                             <constraint firstAttribute="trailing" secondItem="VJV-HG-b1s" secondAttribute="trailing" constant="32" id="NJV-rp-wPE"/>
+                                            <constraint firstItem="X80-7n-J7T" firstAttribute="leading" secondItem="kJ7-FZ-RCj" secondAttribute="leading" constant="20" id="aDi-NC-Lcx"/>
                                             <constraint firstAttribute="trailing" secondItem="311-bF-VNY" secondAttribute="trailing" constant="19" id="ggp-F3-fTC"/>
                                             <constraint firstItem="311-bF-VNY" firstAttribute="leading" secondItem="kJ7-FZ-RCj" secondAttribute="leading" constant="20" id="ifl-CF-GUg"/>
                                             <constraint firstAttribute="trailing" secondItem="dgo-k7-TPy" secondAttribute="trailing" constant="8" id="jM6-Bf-cLz"/>
+                                            <constraint firstAttribute="trailing" secondItem="X80-7n-J7T" secondAttribute="trailing" constant="32" id="mD7-vx-Uti"/>
                                             <constraint firstItem="VJV-HG-b1s" firstAttribute="top" secondItem="311-bF-VNY" secondAttribute="bottom" constant="36.333333333333314" id="oTV-Uv-lCi"/>
-                                            <constraint firstAttribute="bottom" secondItem="dgo-k7-TPy" secondAttribute="bottom" constant="129" id="tQo-Ie-j1z"/>
+                                            <constraint firstItem="X80-7n-J7T" firstAttribute="top" secondItem="dgo-k7-TPy" secondAttribute="bottom" constant="90.666666666666629" id="u7m-6q-Nkf"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -226,6 +235,7 @@
                         <outlet property="imageView" destination="311-bF-VNY" id="uKW-vE-C8N"/>
                         <outlet property="mapView" destination="VJV-HG-b1s" id="Xc5-zV-ios"/>
                         <outlet property="message" destination="dgo-k7-TPy" id="tKO-1b-r1M"/>
+                        <outlet property="timeStamp" destination="X80-7n-J7T" id="bWy-V0-aGJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eTa-S2-y8q" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -14,6 +14,7 @@ class Message: NSObject
     var likes: Int?
     var dislikes: Int?
     var location: [Double?] = [nil, nil]
+    var date: String?
     @objc var client: String?
     @objc var message: String?
     

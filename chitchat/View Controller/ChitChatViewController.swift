@@ -182,7 +182,7 @@ class ChitChatViewController: UITableViewController, CLLocationManagerDelegate
         if let chat = postField.text
         {
             print("chat")
-            networkManager.sendChat(chat: chat, location: location!)
+            networkManager.sendChat(chat: chat, location: location)
             networkManager?.loadMessages(completion: { self.fetchData() } )
             postField.text = ""
         }

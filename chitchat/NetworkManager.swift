@@ -87,7 +87,7 @@ class NetworkManager
                             self.messages = []
                             for currentMessage in messages
                             {
-                                if let comment = currentMessage["message"], let client = currentMessage["client"] as? String, let _id = currentMessage["_id"] as? String, let likes = currentMessage["likes"] as? Int, let dislikes = currentMessage["dislikes"] as? Int
+                                if let comment = currentMessage["message"], let client = currentMessage["client"] as? String, let _id = currentMessage["_id"] as? String, let likes = currentMessage["likes"] as? Int, let dislikes = currentMessage["dislikes"] as? Int, let date = currentMessage["date"] as? String
                                 {
                                     let messageObj: Message = Message()
                                     messageObj._id = _id
@@ -95,6 +95,7 @@ class NetworkManager
                                     messageObj.message = comment as? String
                                     messageObj.likes = likes
                                     messageObj.dislikes = dislikes
+                                    messageObj.date = date
                                     if let loc = currentMessage["loc"] as? [String] {
                                         messageObj.location = [Double(loc[1]), Double(loc[0])]
                                         print(messageObj.location)
@@ -241,11 +242,25 @@ class NetworkManager
         
     }
     
-    func sendChat(chat: String, location: CLLocation)
+    func sendChat(chat: String, location: CLLocation?)
     {
         let message: String = (chat.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed))!
         
-        if let url = URL(string: NetworkManager.getURLString(forKey: "url") + NetworkManager.getUserString(forKey: username) + NetworkManager.getURLString(forKey: "message") + "\(message)" + "&lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)")
+        var requestURL: URL?
+        
+        if let lon = location?.coordinate.longitude, let lat = location?.coordinate.latitude {
+            if let tmp = URL(string: NetworkManager.getURLString(forKey: "url") + NetworkManager.getUserString(forKey: username) + NetworkManager.getURLString(forKey: "message") + "\(message)" + "&lat=\(lat)&lon=\(lon)") {
+                requestURL = tmp
+            }
+        }
+        else {
+            if let tmp = URL(string: NetworkManager.getURLString(forKey: "url") + NetworkManager.getUserString(forKey: username) + NetworkManager.getURLString(forKey: "message") + "\(message)") {
+                requestURL = tmp
+            }
+        }
+        
+        
+        if let url = requestURL
         {
             var request = URLRequest(url: url)
             

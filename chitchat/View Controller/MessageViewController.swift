@@ -17,7 +17,8 @@ class MessageViewController: UIViewController
     @IBOutlet var imageView: UIImageView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var message: UILabel!
-
+    @IBOutlet weak var timeStamp: UILabel!
+    
     
     override func viewWillAppear(_ animated: Bool)
     {
@@ -28,6 +29,7 @@ class MessageViewController: UIViewController
         }
         
         message.text = currentMessage.message
+        timeStamp.text = currentMessage.date
 
         if let lat = currentMessage.location[0], let long = currentMessage.location[1] {
             let initialLoc = CLLocation(latitude: lat, longitude: long)
