@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ChitChatViewController: UITableViewController
+class ChitChatViewController: UITableViewController, CLLocationManagerDelegate
 {
     var networkManager: NetworkManager!
+    var locationManager = CLLocationManager()
+    var location: CLLocation?
     @IBOutlet weak var postField: UITextField!
     
     /*
@@ -44,6 +47,19 @@ class ChitChatViewController: UITableViewController
         {
             self.reloadTableView()
         }
+        
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        location = locations[0] as CLLocation
     }
     
     @objc func fetchData()
@@ -166,7 +182,7 @@ class ChitChatViewController: UITableViewController
         if let chat = postField.text
         {
             print("chat")
-            networkManager.sendChat(chat: chat)
+            networkManager.sendChat(chat: chat, location: location!)
             networkManager?.loadMessages(completion: { self.fetchData() } )
             postField.text = ""
         }

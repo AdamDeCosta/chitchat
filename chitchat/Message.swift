@@ -17,7 +17,7 @@ class Message: NSObject
     @objc var client: String?
     @objc var message: String?
     
-    static var supportedImgFormats = [".png", ".jpg", ".gif"]
+    static var supportedImgFormats = [".png", ".jpg", ".gif", ".jpeg", ".JPG", ".GIF", ".PNG"]
     
     func getImageURLInMessage() -> URL?
     {

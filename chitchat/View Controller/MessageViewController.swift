@@ -24,12 +24,11 @@ class MessageViewController: UIViewController
         super.viewWillAppear(animated)
         if let imageURL = currentMessage.getImageURLInMessage()
         {
-            print(imageURL)
             imageView.kf.setImage(with: imageURL)
         }
         
         message.text = currentMessage.message
-        /*
+
         if let lat = currentMessage.location[0], let long = currentMessage.location[1] {
             let initialLoc = CLLocation(latitude: lat, longitude: long)
             
@@ -37,7 +36,11 @@ class MessageViewController: UIViewController
             
             mapView.setRegion(region, animated: true)
             
-        }*/
+            let locAnnotion = MKPointAnnotation()
+            locAnnotion.coordinate = initialLoc.coordinate
+            
+            mapView.addAnnotation(locAnnotion)
+        }
     }
     
     

@@ -9,12 +9,11 @@
 import Foundation
 import CoreLocation
 
-class NetworkManager: NSObject, CLLocationManagerDelegate
+class NetworkManager
 {
     @objc var messages = [Message]()
     static var urlStoreName = String("URLStore")
     var username: String
-    var locationManager = CLLocationManager()
     
     let reactionArchiveURL : URL =
     {
@@ -31,23 +30,14 @@ class NetworkManager: NSObject, CLLocationManagerDelegate
     
     init(username: String)
     {
-        
         if let archivedItems = NSKeyedUnarchiver.unarchiveObject(withFile: reactionArchiveURL.path) as? [String]
         {
             reactionCache.append(contentsOf: archivedItems)
         }
         
         self.username = username
-        
-        super.init()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.requestAlwaysAuthorization()
-            locationManager.requestWhenInUseAuthorization()
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.startUpdatingLocation()
-        }
+
+
     }
     
     func getMessage(chatID: String) -> Message?
@@ -106,7 +96,7 @@ class NetworkManager: NSObject, CLLocationManagerDelegate
                                     messageObj.likes = likes
                                     messageObj.dislikes = dislikes
                                     if let loc = currentMessage["loc"] as? [String] {
-                                        messageObj.location = [Double(loc[0]), Double(loc[1])]
+                                        messageObj.location = [Double(loc[1]), Double(loc[0])]
                                         print(messageObj.location)
                                     }
                                     self.messages.append(messageObj)
@@ -251,11 +241,11 @@ class NetworkManager: NSObject, CLLocationManagerDelegate
         
     }
     
-    func sendChat(chat: String)
+    func sendChat(chat: String, location: CLLocation)
     {
-        let message = chat.replacingOccurrences(of: " ", with: "%20")
+        let message: String = (chat.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed))!
         
-        if let url = URL(string: NetworkManager.getURLString(forKey: "url") + NetworkManager.getUserString(forKey: username) + NetworkManager.getURLString(forKey: "message") + "\(message)")
+        if let url = URL(string: NetworkManager.getURLString(forKey: "url") + NetworkManager.getUserString(forKey: username) + NetworkManager.getURLString(forKey: "message") + "\(message)" + "&lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)")
         {
             var request = URLRequest(url: url)
             
